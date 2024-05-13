@@ -5,10 +5,31 @@
   </div>
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="">Hhop</a></li>
-      <li><a href="">About</a></li>
-      <li><a href="">Contact</a></li>
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/shop"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Shop</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/about"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >About</a
+        >
+      </li>
+      <li><a routerLink="">Contact</a></li>
     </ul>
   </nav>
   <div class="fonto">
