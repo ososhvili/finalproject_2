@@ -29,7 +29,14 @@
           >About</a
         >
       </li>
-      <li><a routerLink="">Contact</a></li>
+      <li>
+        <a
+          routerLink="/login"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Login
+        </a>
+      </li>
     </ul>
   </nav>
   <div class="fonto">

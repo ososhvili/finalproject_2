@@ -1,0 +1,51 @@
+<div class="login">
+  <h2>Login To Furniro</h2>
+  <form [formGroup]="userForm">
+    <div class="forms">
+      <label for="">Emale Address</label>
+      <input
+        type="email"
+        name="email"
+        formControlName="email"
+        placeholder="Emale Address"
+      />
+      <div
+        *ngIf="
+          (userForm.controls['email'].invalid &&
+            userForm.controls['email'].touched) ||
+          userForm.controls['email'].dirty
+        "
+      >
+        <span *ngIf="userForm.controls['email'].errors?.['required']"
+          >email is required</span
+        >
+      </div>
+    </div>
+    <div class="forms">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        placeholder="Password"
+      />
+      <div
+        *ngIf="
+          (userForm.controls['password'].invalid &&
+            userForm.controls['password'].touched) ||
+          userForm.controls['password'].dirty
+        "
+      >
+        <span *ngIf="userForm.controls['password'].errors?.['password']">
+          Psassword is required
+        </span>
+      </div>
+    </div>
+  </form>
+  <div class="button">
+    <button type="submit" class="login-button" [disabled]="userForm.invalid">
+      Login
+    </button>
+    <p>Do not have an account yet?<a routerLink="../register">Register </a></p>
+  </div>
+</div>
