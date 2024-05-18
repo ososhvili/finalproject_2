@@ -1,6 +1,6 @@
 <div class="login">
   <h2>Login To Furniro</h2>
-  <form [formGroup]="userForm">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="forms">
       <label for="">Emale Address</label>
       <input
@@ -9,17 +9,12 @@
         formControlName="email"
         placeholder="Emale Address"
       />
-      <div
-        *ngIf="
-          (userForm.controls['email'].invalid &&
-            userForm.controls['email'].touched) ||
-          userForm.controls['email'].dirty
-        "
+      <small
+        class="errors"
+        *ngIf="(email.invalid && email.dirty) || email.touched"
+        ><div *ngIf="email.errors?.['required']">email is required</div>
+        <div *ngIf="email.errors?.['email']">Enter a valid email</div></small
       >
-        <span *ngIf="userForm.controls['email'].errors?.['required']"
-          >email is required</span
-        >
-      </div>
     </div>
     <div class="forms">
       <label for="password">Password</label>
@@ -29,21 +24,22 @@
         formControlName="password"
         placeholder="Password"
       />
-      <div
-        *ngIf="
-          (userForm.controls['password'].invalid &&
-            userForm.controls['password'].touched) ||
-          userForm.controls['password'].dirty
-        "
+      <small
+        class="errors"
+        *ngIf="(password.invalid && password.dirty) || password.touched"
+        ><div *ngIf="password.errors?.['required']">
+          password is required
+        </div></small
       >
-        <span *ngIf="userForm.controls['password'].errors?.['password']">
-          Psassword is required
-        </span>
-      </div>
     </div>
   </form>
   <div class="button">
-    <button type="submit" class="login-button" [disabled]="userForm.invalid">
+    <button
+      type="submit"
+      class="login-button"
+      [disabled]="loginForm.invalid"
+      (click)="login()"
+    >
       Login
     </button>
     <p>Do not have an account yet?<a routerLink="../register">Register </a></p>
