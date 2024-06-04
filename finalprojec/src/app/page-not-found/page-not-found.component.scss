@@ -1,0 +1,41 @@
+.notFound {
+  background-color: rgb(64, 63, 63);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .error {
+    display: flex;
+    align-items: center;
+    h2 {
+      font-family: Poppins;
+      font-size: 150px;
+      font-weight: 700;
+      color: white;
+      margin-right: 40px;
+    }
+    .text {
+      .found {
+        font-family: Poppins;
+        font-size: 50px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 20px;
+      }
+      .moved {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        line-height: 30px;
+      }
+      a {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        text-decoration: underline;
+      }
+    }
+  }
+}

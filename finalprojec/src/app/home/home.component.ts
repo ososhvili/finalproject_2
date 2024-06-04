@@ -5,6 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FurnitureComponent } from '../home/furniture/furniture.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CarouselComponent } from '../home/carousel/carousel.component';
+import { CartsComponent } from './carts/carts.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import { CarouselComponent } from '../home/carousel/carousel.component';
     FooterComponent,
     FurnitureComponent,
     CarouselComponent,
+    CartsComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="filter">
+    <span>Showing 1–{{ itemsPerPage.value }} of {{ count }} results</span>
+    <div class="dropDown">
+      <label>Show</label>
+      <input type="number" [formControl]="itemsPerPage" />
+      <!-- (input)="cardsNumber($event)" -->
+      <form>
+        <label>Short by</label>
+        <select [formControl]="dropDown">
+          <option selected value="false">Increase</option>
+          <option value="true">Decrease</option>
+        </select>
+      </form>
+    </div>
+  </div>
+  <div class="cards">
+    <div
+      *ngFor="
+        let item of myArr
+          | paginate : { itemsPerPage: itemsPerPage.value, currentPage: p }
+      "
+      class="card"
+    >
+      <div class="img">
+        <img src=" {{ item.img }}" alt="" />
+      </div>
+      <div class="info">
+        <h4>{{ item.productName }}</h4>
+        <span class="Product">{{ item.Product }}</span>
+        <span class="cost">{{ item.price }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

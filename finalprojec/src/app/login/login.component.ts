@@ -3,19 +3,14 @@ import { Component } from '@angular/core';
 import {
   ReactiveFormsModule,
   Validators,
-  FormGroup,
-  FormControl,
   FormBuilder,
   FormsModule,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
 import { HttpClient } from '@angular/common/http';
-
-import { tap } from 'rxjs';
-import { error } from 'console';
+import { UserService } from '../shared/user.sevice';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +29,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     public auth: AuthService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {}
 
   get email() {
@@ -53,7 +49,9 @@ export class LoginComponent {
         );
       });
       if (user) {
+        this.userService.logedUser = user;
         alert('Login Success');
+        console.log(user);
         this.loginForm.reset();
         this.router.navigateByUrl('dashboard');
       } else {
