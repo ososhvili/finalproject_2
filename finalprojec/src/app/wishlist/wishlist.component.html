@@ -1,0 +1,33 @@
+<app-header></app-header>
+<ng-container *ngIf="product.length != 0">
+  <div class="container" *ngFor="let item of product; let i = index">
+    <div class="cart-product">
+      <span>{{ i + 1 }}</span>
+      <div class="img">
+        <img src="{{ item.img }}" alt="" />
+      </div>
+      <h4>{{ item.product }}</h4>
+      <span class="Product">{{ item.productName }}</span>
+      <span class="cost">{{ item.price }}</span>
+      <span>quantity</span>
+      <span>total</span>
+      <button (click)="removeItem(item)">Delete</button>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="product.length == 0">
+  <div class="container">
+    <div class="cart">
+      <h5>My Cart</h5>
+    </div>
+    <div class="center">
+      <img
+        src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+        alt=""
+      />
+      <h4>Your cart is empty!</h4>
+      <h6>Add item to it now</h6>
+      <button routerLink="/shop">Shop Now</button>
+    </div>
+  </div>
+</ng-container>

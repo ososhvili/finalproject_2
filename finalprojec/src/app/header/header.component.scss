@@ -4,11 +4,6 @@
   align-items: center;
   justify-content: space-between;
   margin: 29px 100px 30px 94px;
-  // .active {
-  //   border-bottom: 2px solid color;
-  //   transform: scale(1.1);
-  //   transition: border-bottom 0.3s ease, color 0.3 ease;
-  // }
   .logo {
     display: flex;
     align-items: center;
@@ -42,5 +37,24 @@
     display: flex;
     align-items: center;
     gap: 50px;
+    .cart {
+      position: relative;
+      .itemsInCart {
+        position: absolute;
+        left: 20px;
+        top: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15px;
+        height: 15px;
+        background-color: red;
+        border-radius: 5px;
+        span {
+          font-size: 12px;
+          color: white;
+        }
+      }
+    }
   }
 }

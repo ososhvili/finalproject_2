@@ -17,7 +17,7 @@
   <div class="cards">
     <div
       *ngFor="
-        let item of myArr
+        let item of productList
           | paginate : { itemsPerPage: itemsPerPage.value, currentPage: p }
       "
       class="card"
@@ -29,6 +29,7 @@
         <h4>{{ item.productName }}</h4>
         <span class="Product">{{ item.Product }}</span>
         <span class="cost">{{ item.price }}</span>
+        <button (click)="addToCart(item)">Add to cart</button>
       </div>
     </div>
   </div>

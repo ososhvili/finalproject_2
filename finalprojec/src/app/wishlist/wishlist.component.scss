@@ -1,0 +1,41 @@
+.container {
+  .cart {
+    h5 {
+      font-family: Poppins;
+    }
+    height: 60vh;
+    padding: 25px;
+    border: solid black;
+  }
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    img {
+      text-decoration: none;
+      color: inherit;
+      border: none;
+      outline: none;
+      height: 162px;
+      width: 250px;
+      margin: 20px 0px;
+    }
+  }
+  .cart-product {
+    border: solid black 1px;
+    padding: 5px;
+    margin: 0 auto;
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 50px;
+
+    img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}

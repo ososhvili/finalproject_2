@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +15,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {}
+export class HeaderComponent implements OnInit {
+  public totalItem: number = 0;
+  constructor(private cartService: CartService) {}
+  ngOnInit(): void {
+    this.cartService.getProducts().subscribe((res) => {
+      this.totalItem = res.length;
+    });
+  }
+}

@@ -26,6 +26,12 @@ export const routes: Routes = [
       import('./register/register.component').then((c) => c.RegisterComponent),
   },
   {
+    path: 'wishlist',
+    title: 'wishlist',
+    loadComponent: () =>
+      import('./wishlist/wishlist.component').then((c) => c.WishlistComponent),
+  },
+  {
     path: 'dashboard',
     title: 'dashboard',
     loadComponent: () =>
