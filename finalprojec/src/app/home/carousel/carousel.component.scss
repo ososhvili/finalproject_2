@@ -36,6 +36,7 @@
       font-family: "Poppins", sans-serif;
       font-size: 16px;
       font-weight: 700;
+      cursor: pointer;
     }
     .button:hover {
       background: rgb(224, 183, 89);
@@ -64,4 +65,26 @@
   // //   height: 300px;
   // //   margin: 20px auto;
   // // }
+}
+
+// swiper-container {
+//   width: 100%;
+//   height: 100%;
+// }
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 400px;
+  height: 100%;
+  object-fit: cover;
 }

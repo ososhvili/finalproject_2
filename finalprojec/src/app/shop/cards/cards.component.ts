@@ -4,21 +4,24 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Observable, map, tap } from 'rxjs';
 import { CartService } from '../../services/cart.service';
+import { FilterPipe } from '../../shared/filter.pipe';
 
 @Component({
   selector: 'app-cards',
   standalone: true,
+  templateUrl: './cards.component.html',
+  styleUrl: './cards.component.scss',
   imports: [
     CommonModule,
     NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
+    FilterPipe,
   ],
-  templateUrl: './cards.component.html',
-  styleUrl: './cards.component.scss',
 })
 export class CardsComponent implements OnInit {
-  p: number = 1;
+  p: any = 1;
+  searchKey: string = '';
   // itemsPerPage = '16';
 
   public itemsPerPage = new FormControl(16) as FormControl<number>;
@@ -31,120 +34,124 @@ export class CardsComponent implements OnInit {
   public productList = [
     {
       id: 1,
-      cost: 2500,
-      price: '$2.500',
+      price: 2500,
+      cost: '$2.500',
       productName: 'Syltherine',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 1.png',
     },
     {
-      price: '$2.500',
-      cost: 2500,
+      id: 2,
+      price: 2500,
       productName: 'Leviosa',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 2.png',
     },
     {
-      price: '$7000',
-      cost: 7000,
+      id: 3,
+      price: 7000,
       productName: 'Lolito',
       Product: 'Luxury big sofa',
       img: '../../../assets/images/image 3.png',
     },
     {
-      price: '$3.500',
-      cost: 3500,
+      id: 4,
+      price: 3500,
       productName: 'Leviosa',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 2.png',
     },
     {
-      price: '$6.500',
-      cost: 6500,
+      id: 5,
+      price: 6500,
       productName: 'Lolito',
       Product: 'Luxury big sofa',
       img: '../../../assets/images/image 3.png',
     },
     {
-      price: '$5.500',
-      cost: 5500,
+      id: 6,
+      price: 5500,
       productName: 'Respira',
       Product: 'Outdoor bar table and stool',
       img: '../../../assets/images/image 4.png',
     },
     {
-      price: '$4.600',
-      cost: 4600,
+      id: 7,
+      price: 4600,
       productName: 'Small mug',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 6.png',
     },
     {
-      price: '$6.500',
-      cost: 6500,
+      id: 8,
+      price: 6500,
       productName: 'Pingky',
       Product: 'Cute bed set',
       img: '../../../assets/images/image 7.png',
     },
     {
-      price: '$2.500',
-      cost: 2500,
+      id: 9,
+      price: 2500,
       productName: 'Leviosa',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 2.png',
     },
     {
-      price: '$7.000',
-      cost: 7000,
+      id: 10,
+
+      price: 7000,
       productName: 'Lolito',
       Product: 'Luxury big sofa',
       img: '../../../assets/images/image 3.png',
     },
     {
-      price: '$5.000',
-      cost: 5000,
+      id: 11,
+
+      price: 5000,
       productName: 'Potty',
       Product: 'Minimalist flower pot',
       img: '../../../assets/images/image 8.png',
     },
     {
-      price: '$3.500',
-      cost: 3500,
+      id: 12,
+
+      price: 3500,
       productName: 'Small mug',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 6.png',
     },
     {
-      price: '$2.500',
-      cost: 2500,
+      id: 13,
+      price: 2500,
       productName: 'Syltherine',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 1.png',
     },
     {
-      price: '$2.500',
-      cost: 2500,
+      id: 14,
+      price: 2500,
       productName: 'Leviosa',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 2.png',
     },
     {
-      price: '$7.000',
-      cost: 7000,
+      id: 14,
+      price: 7000,
       productName: 'Lolito',
       Product: 'Luxury big sofa',
       img: '../../../assets/images/image 3.png',
     },
     {
-      price: '$5.000',
-      cost: 5000,
+      id: 15,
+
+      price: 5000,
       productName: 'Potty',
       Product: 'Minimalist flower pot',
       img: '../../../assets/images/image 8.png',
     },
     {
-      price: '$2.500',
-      cost: 2500,
+      id: 16,
+      price: 2500,
       productName: 'Leviosa',
       Product: 'Stylish cafe chair',
       img: '../../../assets/images/image 2.png',
@@ -273,14 +280,17 @@ export class CardsComponent implements OnInit {
         })
       )
       .subscribe();
+    this.productList.forEach((a: any) => {
+      Object.assign(a, { quantity: 1, total: a.price });
+    });
   }
   count = this.productList.filter((item) => item).length;
 
   public sortArray(increase: boolean) {
     this.productList.sort((a, b) =>
       increase
-        ? Number(a.cost) - Number(b.cost)
-        : Number(b.cost) - Number(a.cost)
+        ? Number(a.price) - Number(b.cost)
+        : Number(b.price) - Number(a.cost)
     );
     console.log(increase);
   }

@@ -1,6 +1,7 @@
 <div class="container">
   <div class="filter">
     <span>Showing 1–{{ itemsPerPage.value }} of {{ count }} results</span>
+    <input type="text" />
     <div class="dropDown">
       <label>Show</label>
       <input type="number" [formControl]="itemsPerPage" />
@@ -18,7 +19,11 @@
     <div
       *ngFor="
         let item of productList
-          | paginate : { itemsPerPage: itemsPerPage.value, currentPage: p }
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage.value,
+                currentPage: p | filter : searchKey : ''
+              }
       "
       class="card"
     >
@@ -28,7 +33,7 @@
       <div class="info">
         <h4>{{ item.productName }}</h4>
         <span class="Product">{{ item.Product }}</span>
-        <span class="cost">{{ item.price }}</span>
+        <span class="cost">${{ item.price }}</span>
         <button (click)="addToCart(item)">Add to cart</button>
       </div>
     </div>

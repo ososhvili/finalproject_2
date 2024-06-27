@@ -1,17 +1,38 @@
-<app-header></app-header>
 <ng-container *ngIf="product.length != 0">
-  <div class="container" *ngFor="let item of product; let i = index">
-    <div class="cart-product">
+  <div class="container">
+    <div class="cart-product" *ngFor="let item of product; let i = index">
       <span>{{ i + 1 }}</span>
       <div class="img">
         <img src="{{ item.img }}" alt="" />
       </div>
       <h4>{{ item.product }}</h4>
       <span class="Product">{{ item.productName }}</span>
-      <span class="cost">{{ item.price }}</span>
-      <span>quantity</span>
-      <span>total</span>
-      <button (click)="removeItem(item)">Delete</button>
+      <span class="cost">${{ item.price }}</span>
+      <span>{{ item.quantity }}</span>
+      <span>${{ item.total }}</span>
+      <button (click)="removeItem(item)">
+        <!-- <img src="../../assets/images/trash.svg" style="color: #ffffff" /> -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="white"
+          class="bi bi-trash"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+          />
+          <path
+            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="buttons_bot">
+      <button class="red" (click)="emptycart()">Empty Cart</button>
+      <button class="blue" routerLink="/shop">Shop More</button>
+      <strong>Grang Total: ${{ grandTotal }}</strong>
     </div>
   </div>
 </ng-container>

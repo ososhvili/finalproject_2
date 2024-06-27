@@ -33,4 +33,7 @@ export class WishlistComponent implements OnInit {
   removeItem(item: any) {
     this.cartServices.removeCartItem(item);
   }
+  emptycart() {
+    this.cartServices.removeAllCart();
+  }
 }

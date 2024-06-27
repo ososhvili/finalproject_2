@@ -46,5 +46,50 @@
       width: 120px;
       height: 120px;
     }
+    button {
+      background-color: red;
+      border-radius: 5px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    button:hover {
+      background-color: rgb(214, 37, 37);
+    }
+  }
+  .buttons_bot {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .red {
+      background-color: red;
+      font-family: Poppins;
+      color: white;
+      border: none;
+      padding: 6px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .red:hover {
+      background-color: rgb(214, 37, 37);
+    }
+    .blue {
+      background-color: rgb(38, 38, 241);
+      font-family: Poppins;
+      color: white;
+      border: none;
+      padding: 6px;
+      border-radius: 5px;
+      margin: 10px 20px 10px 20px;
+      cursor: pointer;
+    }
   }
 }

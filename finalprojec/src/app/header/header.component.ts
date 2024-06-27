@@ -13,7 +13,6 @@ import { CartService } from '../services/cart.service';
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
   public totalItem: number = 0;
@@ -21,6 +20,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getProducts().subscribe((res) => {
       this.totalItem = res.length;
+      debugger;
     });
   }
 }
